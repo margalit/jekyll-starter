@@ -1,0 +1,13 @@
+$classes: (
+  bg-cover: (background-size: cover),
+  bg-cover-width: (background-size: 100% auto),
+  bg-cover-height: (background-size: auto 100%),
+  bg-contain: (background-size: contain),
+  bg-center: (background-repeat: no-repeat, background-position: center center),
+  bg-top: (background-repeat: no-repeat, background-position: top center),
+  bg-right: (background-repeat: no-repeat, background-position: center right),
+  bg-bottom: (background-repeat: no-repeat, background-position: bottom center),
+  bg-left: (background-repeat: no-repeat, background-position: center left),
+);
+
+@include all-sizes($classes);

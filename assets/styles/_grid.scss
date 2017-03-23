@@ -1,0 +1,52 @@
+$columns: 14;
+
+$classes: (
+  col: (float: left),
+  col-right: (float: right),
+);
+
+@include all-sizes($classes);
+
+@for $i from 0 through $columns {
+  .col-#{$i} {
+    width: calc(#{$i}/#{$columns} * 100%);
+  }
+  .pl-col-#{$i} {
+    padding-left: calc(#{$i}/#{$columns} * 100%);
+  }
+  .pr-col-#{$i} {
+    padding-right: calc(#{$i}/#{$columns} * 100%);
+  }
+  .ml-col-#{$i} {
+    margin-left: calc(#{$i}/#{$columns} * 100%);
+  }
+  .mr-col-#{$i} {
+    margin-right: calc(#{$i}/#{$columns} * 100%);
+  }
+}
+
+@each $bp-prefix, $size in $breakpoints {
+  @media #{$size} {
+    .#{$bp-prefix}-col {
+      float: left;
+      box-sizing: border-box;
+    };
+    @for $i from 0 through $columns {
+      .#{$bp-prefix}-col-#{$i} {
+        width: calc(#{$i}/#{$columns} * 100%);
+      }
+      .#{$bp-prefix}-pl-col-#{$i} {
+        padding-left: calc(#{$i}/#{$columns} * 100%);
+      }
+      .#{$bp-prefix}-pr-col-#{$i} {
+        padding-right: calc(#{$i}/#{$columns} * 100%);
+      }
+      .#{$bp-prefix}-ml-col-#{$i} {
+        margin-left: calc(#{$i}/#{$columns} * 100%);
+      }
+      .#{$bp-prefix}-mr-col-#{$i} {
+        margin-right: calc(#{$i}/#{$columns} * 100%);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+---
+title: Jekyll boilerplate
+timezone: Australia/Melburne
+permalink: pretty
+exclude:
+- Gruntfile.js
+- webpack.config.js
+- Gemfile.lock
+- Gemfile
+- package.json
+- README*
+- node_modules
+- ".gitignore"
+- assets/scripts/src
+- yarn.lock
+- ".git"
+gems:
+- jekyll-seo-tag
+- jekyll-sitemap
+sass:
+  sass_dir: assets/styles/
+  style: compressed

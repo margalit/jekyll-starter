@@ -1,0 +1,30 @@
+$breakpoint-sm: '(max-width: 52em)' !default;
+$breakpoint-lg: '(min-width: 100em)' !default;
+
+$breakpoints: (
+  sm: $breakpoint-sm,
+  lg: $breakpoint-lg
+);
+
+@mixin all-properties($properties) {
+  @each $key, $value in $properties {
+    #{$key}: $value;
+  }
+}
+
+@mixin all-sizes($classes) {
+  @each $class, $properties in $classes {
+    .#{$class} {
+      @include all-properties($properties)
+    }
+  }
+  @each $bp-prefix, $size in $breakpoints {
+    @media #{$size} {
+      @each $class, $properties in $classes {
+        .#{$bp-prefix}-#{$class} {
+          @include all-properties($properties)
+        }
+      }
+    }
+  }
+}

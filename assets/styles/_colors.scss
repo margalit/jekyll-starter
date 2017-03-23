@@ -1,0 +1,14 @@
+$colors: ();
+
+@each $bp-prefix, $size in $breakpoints {
+  @media #{$size} {
+    @each $name, $value in $colors {
+      .#{"" + $name} {
+        color: $value;
+      }
+      .bg-#{"" + $name} {
+        background-color: $value;
+      }
+    }
+  }
+}

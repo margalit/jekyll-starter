@@ -1,0 +1,75 @@
+$spacing: 1.2rem;
+$exponent: 1.67;
+
+$spacings: ($spacing);
+@for $i from 2 through 8 {
+  $spacings: append($spacings, nth($spacings, $i - 1) * $exponent);
+}
+
+$directions: (
+  pa: (padding),
+  pl: (padding-left),
+  pr: (padding-right),
+  pt: (padding-top),
+  pb: (padding-bottom),
+  px: (padding-left, padding-right),
+  py: (padding-top, padding-bottom),
+  ma: (margin),
+  ml: (margin-left),
+  mr: (margin-right),
+  mt: (margin-top),
+  mb: (margin-bottom),
+  mx: (margin-left, margin-right),
+  my: (margin-top, margin-bottom),
+);
+
+$classes: (
+  mx-auto: (margin-left: auto, margin-right: auto),
+  my-auto: (margin-top: auto, margin-bottom: auto),
+);
+
+@include all-sizes($classes);
+
+@each $direction, $properties in $directions {
+  .#{$direction}-0 {
+    @each $property in $properties {
+      #{$property}: 0;
+    }
+  }
+  @for $i from 1 through 8 {
+    .#{$direction}-#{$i} {
+      @each $property in $properties {
+        #{$property}: nth($spacings, $i);
+      }
+    }
+    .#{$direction}-n#{$i} {
+      @each $property in $properties {
+        #{$property}: -#{nth($spacings, $i)};
+      }
+    }
+  }
+}
+
+@each $direction, $properties in $directions {
+  @each $bp-prefix, $size in $breakpoints {
+    @media #{$size} {
+      .#{$bp-prefix}-#{$direction}-0 {
+        @each $property in $properties {
+          #{$property}: 0;
+        }
+      }
+      @for $i from 1 through 8 {
+        .#{$bp-prefix}-#{$direction}-#{$i} {
+          @each $property in $properties {
+            #{$property}: nth($spacings, $i);
+          }
+        }
+        .#{$bp-prefix}-#{$direction}-n#{$i} {
+          @each $property in $properties {
+            #{$property}: -#{nth($spacings, $i)};
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Jekyll-Starter",
+  "version": "1.0.0",
+  "description": "Starter for Jekyll with webpack & livereload",
+  "author": "Sam Margalit",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "webpack": "^1.13.2"
+  },
+  "scripts": {
+    "start": "concurrently \"NODE_ENV=development webpack --progress --colors --watch\" \"jekyll serve --livereload\"",
+    "build": "NODE_ENV=production webpack --progress --colors"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {
+    "concurrently": "^3.4.0"
+  }
+}

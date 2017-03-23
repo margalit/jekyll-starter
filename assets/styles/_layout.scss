@@ -1,0 +1,19 @@
+$classes: (
+  block: (display: block),
+  hide: (display: none),
+  inline-block: (display: inline-block),
+  absolute: (position: absolute),
+  relative: (position: relative),
+  align-baseline: (vertical-align: baseline),
+  align-top: (vertical-align: top),
+  align-middle: (vertical-align: middle),
+  align-bottom: (vertical-align: bottom),
+  overflow-visible: (overflow: visible),
+  overflow-hidden: (overflow: hidden),
+  top-0: (top: 0),
+  bottom-0: (bottom: 0),
+  left-0: (left: 0),
+  right-0: (right: 0),
+);
+
+@include all-sizes($classes);
