@@ -1,51 +1,51 @@
-$columns: 14;
-
 $classes: (
   col: (float: left),
   col-right: (float: right),
 );
 
+$columns: 14;
+
 @include all-sizes($classes);
 
-@for $i from 0 through $columns {
-  .col-#{$i} {
-    width: calc(#{$i}/#{$columns} * 100%);
-  }
-  .pl-col-#{$i} {
-    padding-left: calc(#{$i}/#{$columns} * 100%);
-  }
-  .pr-col-#{$i} {
-    padding-right: calc(#{$i}/#{$columns} * 100%);
-  }
-  .ml-col-#{$i} {
-    margin-left: calc(#{$i}/#{$columns} * 100%);
-  }
-  .mr-col-#{$i} {
-    margin-right: calc(#{$i}/#{$columns} * 100%);
+@for $col from 0 through $columns {
+  @for $cols from 0 through $columns {
+    .col-#{$col}-of-#{$cols} {
+      width: calc(#{$col}/#{$cols} * 100%);
+    }
+    .pl-col-#{$col}-of-#{$cols} {
+      padding-left: calc(#{$col}/#{$cols} * 100%);
+    }
+    .pr-col-#{$col}-of-#{$cols} {
+      padding-right: calc(#{$col}/#{$cols} * 100%);
+    }
+    .ml-col-#{$col}-of-#{$cols} {
+      margin-left: calc(#{$col}/#{$cols} * 100%);
+    }
+    .mr-col-#{$col}-of-#{$cols} {
+      margin-right: calc(#{$col}/#{$cols} * 100%);
+    }
   }
 }
 
 @each $bp-prefix, $size in $breakpoints {
   @media #{$size} {
-    .#{$bp-prefix}-col {
-      float: left;
-      box-sizing: border-box;
-    };
-    @for $i from 0 through $columns {
-      .#{$bp-prefix}-col-#{$i} {
-        width: calc(#{$i}/#{$columns} * 100%);
-      }
-      .#{$bp-prefix}-pl-col-#{$i} {
-        padding-left: calc(#{$i}/#{$columns} * 100%);
-      }
-      .#{$bp-prefix}-pr-col-#{$i} {
-        padding-right: calc(#{$i}/#{$columns} * 100%);
-      }
-      .#{$bp-prefix}-ml-col-#{$i} {
-        margin-left: calc(#{$i}/#{$columns} * 100%);
-      }
-      .#{$bp-prefix}-mr-col-#{$i} {
-        margin-right: calc(#{$i}/#{$columns} * 100%);
+    @for $col from 0 through $columns {
+      @for $cols from 0 through $columns {
+        .#{$bp-prefix}-col-#{$col}-of-#{$cols} {
+          width: calc(#{$col}/#{$cols} * 100%);
+        }
+        .#{$bp-prefix}-pl-col-#{$col}-of-#{$cols} {
+          padding-left: calc(#{$col}/#{$cols} * 100%);
+        }
+        .#{$bp-prefix}-pr-col-#{$col}-of-#{$cols} {
+          padding-right: calc(#{$col}/#{$cols} * 100%);
+        }
+        .#{$bp-prefix}-ml-col-#{$col}-of-#{$cols} {
+          margin-left: calc(#{$col}/#{$cols} * 100%);
+        }
+        .#{$bp-prefix}-mr-col-#{$col}-of-#{$cols} {
+          margin-right: calc(#{$col}/#{$cols} * 100%);
+        }
       }
     }
   }

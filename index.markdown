@@ -1,5 +1,5 @@
 ---
 title: Home
-layout: default
+layout: home
 ---
 You’re all set
