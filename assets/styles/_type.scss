@@ -7,23 +7,23 @@ $lineheight-2: 4.6rem;
 $lineheight-3: 3.2rem;
 
 $classes: (
-  f1: (
+  'f1': (
     font-size: $fontsize-1,
     line-height: $lineheight-2
   ),
-  f2: (
+  'f2': (
     font-size: $fontsize-2,
     line-height: $lineheight-2
   ),
-  f3: (
+  'f3': (
     font-size: $fontsize-3,
     line-height: $lineheight-3
   ),
-  bold: (font-weight: bold),
-  center: (text-align: center),
-  right: (text-align: right),
-  left: (text-align: left),
-  no-underline: (text-decoration: none),
+  'bold': (font-weight: bold),
+  'center': (text-align: center),
+  'right': (text-align: right),
+  'left': (text-align: left),
+  'no-underline': (text-decoration: none),
 );
 
 @include all-sizes($classes)

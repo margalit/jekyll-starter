@@ -1,10 +1,10 @@
 $classes: (
-  input: (
+  'input': (
     padding: nth($spacings, 2),
     font-size: $fontsize-3,
     line-height: $lineheight-3
   ),
-  textarea: (
+  'textarea': (
     padding: nth($spacings, 2),
     font-size: $fontsize-3,
     line-height: $lineheight-3

@@ -1,0 +1,19 @@
+$classes: (
+  'ar1x1:after': (
+    content: "",
+    display: block,
+    padding-top: 100% * 1/1,
+  ),
+  'ar16x9:after': (
+    content: "",
+    display: block,
+    padding-top: 100% * 9/16,
+  ),
+  'ar10x1:after': (
+    content: "",
+    display: block,
+    padding-top: 100% / 10/1,
+  ),
+);
+
+@include all-sizes($classes);
